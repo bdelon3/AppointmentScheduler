@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.main.controller.Login">
+    <children>
+        <Pane layoutX="-4.0" layoutY="-2.0" prefHeight="407.0" prefWidth="606.0">
+            <children>
+                <TextField fx:id="usernameField" layoutX="165.0" layoutY="60.0" prefHeight="25.0" prefWidth="126.0" promptText="username" />
+                <Label fx:id="usernameLabel" layoutX="14.0" layoutY="64.0" prefHeight="17.0" prefWidth="92.0" text="Username" />
+                <Label fx:id="passwordLabel" layoutX="14.0" layoutY="98.0" prefHeight="17.0" prefWidth="92.0" text="Password" />
+                <Button fx:id="login" layoutX="121.0" layoutY="213.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="25.0" prefWidth="85.0" text="Login" />
+                <Label fx:id="locationLabel" layoutX="17.0" layoutY="142.0" prefHeight="17.0" prefWidth="92.0" text="Location" />
+                <TextField fx:id="locationField" disable="true" layoutX="165.0" layoutY="138.0" prefHeight="25.0" prefWidth="148.0" promptText="Your location here" />
+                <Label fx:id="updateLabel" alignment="CENTER" disable="true" layoutX="10.0" layoutY="178.0" prefHeight="17.0" prefWidth="588.0" text="No upcoming appointments!" textAlignment="CENTER" textFill="#ff0d0d">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="passwordField" layoutX="165.0" layoutY="94.0" prefHeight="10.0" prefWidth="148.0" />
+                <Label fx:id="loginAttemptsLabel" disable="true" layoutX="216.0" layoutY="217.0" prefHeight="17.0" prefWidth="245.0" styleClass="error" text="Login Attempts:" textAlignment="CENTER" textFill="#e70505">
+                    <font>
+                        <Font name="System Italic" size="12.0" />
+                    </font>
+                </Label>
+            <MenuBar layoutX="3.0" layoutY="1.0" prefHeight="26.0" prefWidth="602.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" onAction="#connectToDatabase" text="Add Connection" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <CheckMenuItem fx:id="contentTheme" mnemonicParsing="false" onAction="#changeTheme" selected="true" text="Dark Mode" />
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label fx:id="databaseConnectionError" layoutX="372.0" layoutY="98.0" prefHeight="17.0" prefWidth="162.0" text="Failed to connect to database" textFill="RED" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

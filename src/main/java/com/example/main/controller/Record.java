@@ -107,7 +107,7 @@ public class Record {
     private static FilteredList<Appointment> appointmentFilteredList = new FilteredList<Appointment>(allAppointments, p -> true);
 
     //DAO objects
-    private static AppointmentDAOImpl appointmentDAO = null;
+    private static AppointmentDAOImpl appointmentDAO = new AppointmentDAOImpl();
     private static UserDAOImpl userDAO = new UserDAOImpl();
     private static CustomerDAOImpl customerDAO = new CustomerDAOImpl();
     private static ContactsDAOImpl contactsDAO = new ContactsDAOImpl();
@@ -171,12 +171,10 @@ public class Record {
 
     /**
      * Method that launches the window.
-     * @param app Appointment DAO that provides access to the appointments table.
      * @param user Users information necessary for filling out user information when a customer is
      *             created/updated/deleted or an appointment is created/updated/deleted.
      */
-    public void beginStart(AppointmentDAOImpl app, User user) {
-        this.appointmentDAO = app;
+    public void beginStart(User user) {
         this.usr = user;
         URL uri = getClass().getResource("/com/example/main/record.fxml");
         FXMLLoader loader = new FXMLLoader(uri);

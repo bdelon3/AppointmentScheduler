@@ -25,13 +25,13 @@ public class HelloApplication extends Application {
     {
         Logger log = new Logger();
         log.createFile();
-        AppointmentDAOImpl appointmentDAO = new AppointmentDAOImpl();
+//        AppointmentDAOImpl appointmentDAO = new AppointmentDAOImpl();
         Login lgn = new Login();
-        usr = lgn.beginStart(appointmentDAO.getAll());
+        usr = lgn.beginStart();
         if(usr != null)
         {
                 Record rec = new Record();
-                rec.beginStart(appointmentDAO, usr);
+                rec.beginStart(usr);
         }
 
     }

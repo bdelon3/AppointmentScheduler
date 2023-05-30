@@ -1,4 +1,5 @@
 package com.example.main.controller;
+import com.example.main.dao.AppointmentDAOImpl;
 import com.example.main.dao.Data;
 import com.example.main.dao.UserDAOImpl;
 import com.example.main.model.Appointment;
@@ -69,6 +70,8 @@ public class Login {
 
     private UserDAOImpl userDao;
 
+    private AppointmentDAOImpl appointmentDAO;
+
     private static User usr = null;
 
     private int loginAttemptsCounter = 0;
@@ -78,7 +81,12 @@ public class Login {
      * Called when the Login windows is launched.
      */
     public void initialize() {
-        validateConnection();
+        //retrieving user credentials
+        if(validateConnection()){
+            appointmentDAO = new AppointmentDAOImpl();
+            appointments = appointmentDAO.getAll();
+        }
+        else genError("Failed to connect to database");
         userDao = new UserDAOImpl();
         loginAttemptsLabel.setVisible(false);
         ZoneId zone = ZoneId.systemDefault();
@@ -88,12 +96,10 @@ public class Login {
     }
     /**
      * Launches the Login window.
-     * @param appointments list of appointments used to alert the user when an appointment is within fifteen minutes
-     * in local time.
      * @return usr Returns the user information retrieved once the user successfully logged in. Returns False when the
      * user cancels or exits the window.
      */
-    public User beginStart(List<Appointment> appointments) {
+    public User beginStart() {
 
         //initializing members
         this.appointments = appointments;
@@ -287,7 +293,7 @@ public class Login {
         validateConnection();
     }
 
-    public void validateConnection(){
+    public boolean validateConnection(){
         if(Data.getConnection() == null){
             usernameField.setDisable(true);
             passwordField.setDisable(true);
@@ -299,7 +305,9 @@ public class Login {
             passwordField.setDisable(false);
             login.setDisable(false);
             databaseConnectionError.setVisible(false);
+            return true;
         }
+        return false;
     }
     public void changeTheme(){
         if(contentTheme.isSelected()){

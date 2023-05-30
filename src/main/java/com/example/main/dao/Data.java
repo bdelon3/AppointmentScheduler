@@ -3,15 +3,15 @@ package com.example.main.dao;
 import java.sql.*;
 public class Data {
     private static String url;
-    private static String uname = "AppointmentScheduler";
-    private static String passwd = "Passw0rd!";
+    private static String uname = "";//AppointmentScheduler
+    private static String passwd = "";//Passw0rd!
     private static Connection con;
 
     //connection string vars
-    private static String serverName = "localhost";
+    private static String serverName = "";
 
     private static String port = "3306";
-    private static String databaseName = "client_schedule";
+    private static String databaseName = "";//client_schedule
 
 
 

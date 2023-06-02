@@ -27,7 +27,6 @@ public class Data {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
     /**
      * Static function.

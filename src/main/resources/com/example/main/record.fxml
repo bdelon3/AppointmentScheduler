@@ -73,7 +73,7 @@
                         </Pane>
                         <Pane layoutX="-4.0" layoutY="376.0" prefHeight="229.0" prefWidth="482.0">
                             <children>
-                                <TextArea fx:id="appDescription" editable="false" layoutX="251.0" layoutY="25.0" prefHeight="67.0" prefWidth="200.0" text="Description: " />
+                                <TextArea fx:id="appDescription" editable="false" layoutX="251.0" layoutY="25.0" prefHeight="67.0" prefWidth="200.0" text="Description: " wrapText="true" />
                                 <Button layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onAction="#genReport" text="Generate Report" />
                                 <Button layoutX="416.0" layoutY="128.0" mnemonicParsing="false" onAction="#logout" text="exit" />
                                 <Label layoutX="273.0" layoutY="6.0" prefHeight="17.0" prefWidth="157.0" text="Appointment Description" />
